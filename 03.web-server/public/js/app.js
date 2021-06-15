@@ -1,5 +1,3 @@
-console.log("Client Side Javascript file id loaded");
-
 const weatherForm = document.querySelector("form");
 const search = document.querySelector("input");
 const messageOne = document.querySelector("#message-1");
@@ -10,7 +8,7 @@ weatherForm.addEventListener("submit", (e) => {
   messageOne.textContent = "Loading...";
   messageTwo.textContent = "";
   const address = search.value;
-  fetch(`http://localhost:3000/weather?address=${address}`)
+  fetch(`/weather?address=${address}`)
     .then((res) => res.json())
     .then((data) => {
       if (data.error) return (messageOne.textContent = data.error);
